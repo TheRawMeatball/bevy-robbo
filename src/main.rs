@@ -31,6 +31,9 @@ mod consts {
     pub const STATUS_HEIGHT: i32 = 2;
 }
 
+#[derive(DiscoveryPlugin)]
+struct DiscPlugin;
+
 #[derive(StructOpt, Debug, Default, Clone)]
 #[structopt(name = "basic")]
 pub struct Opts {
@@ -120,6 +123,7 @@ fn main() {
         .add_stage_before(stage::POST_UPDATE, "game_events", SystemStage::parallel())
         .add_stage_after("keyboard", "magnetic_field", SystemStage::parallel())
         .add_stage_after("frame_cnt", "tick", SystemStage::parallel())
+        .add_plugin(DiscPlugin)
         .add_startup_system(level_setup.system())
         .add_system_to_stage(stage::EVENT, update_game_events.system())
         .add_system_to_stage(stage::EVENT, asset_events.system())
