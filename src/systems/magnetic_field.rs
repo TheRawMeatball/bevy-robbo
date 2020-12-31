@@ -2,6 +2,7 @@ use crate::components::{Int2Ops, Magnet, MovingDir, Position, Robbo, Wall};
 use crate::levels::LevelInfo;
 use bevy::prelude::*;
 
+#[system("magnetic_field")]
 pub fn magnetic_field_system(
     level_info: Res<LevelInfo>,
     mut queries: QuerySet<(

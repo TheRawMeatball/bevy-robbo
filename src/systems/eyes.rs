@@ -7,6 +7,7 @@ use std::collections::HashSet;
 
 const RANDOM_MOVE_PROP: f32 = 0.5;
 
+#[system("move")]
 pub fn eyes_system(
     frame_cnt: Res<FrameCnt>,
     level_info: Res<LevelInfo>,

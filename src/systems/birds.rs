@@ -9,6 +9,7 @@ use bevy::prelude::*;
 //     !occupied.contains_key(pos) && !level_info.is_occupied(&pos)
 // }
 
+#[system("move")]
 pub fn move_bird(
     frame_cnt: Res<FrameCnt>,
     level_info: Res<LevelInfo>,

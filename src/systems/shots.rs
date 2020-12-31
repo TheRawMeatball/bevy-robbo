@@ -6,6 +6,7 @@ use crate::resources::DamageMap;
 use bevy::prelude::*;
 use rand::random;
 
+#[system("shots")]
 pub fn shot_system(
     commands: &mut Commands,
     level_info: ResMut<LevelInfo>,

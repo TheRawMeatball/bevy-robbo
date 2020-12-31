@@ -6,6 +6,7 @@ use crate::plugins::audio::Sound;
 
 use bevy::prelude::*;
 
+#[system("tick")]
 pub fn activate_capsule_system(
     commands: &mut Commands,
     inventory: Res<Inventory>,

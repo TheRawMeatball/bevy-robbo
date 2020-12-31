@@ -28,6 +28,7 @@ pub struct ReloadLevelState {
     pub events: EventReader<GameEvent>,
 }
 
+#[system("game_events")]
 pub fn reload_level_system(
     commands: &mut Commands,
     mut state: Local<ReloadLevelState>,
@@ -58,6 +59,7 @@ pub fn reload_level_system(
     }
 }
 
+#[system("game_events")]
 pub fn game_event_system(
     commands: &mut Commands,
     mut state: Local<State>,
@@ -119,6 +121,7 @@ pub struct UseItemState {
     pub events: EventReader<GameEvent>,
 }
 
+#[system("game_events")]
 pub fn game_event_use_item(
     commands: &mut Commands,
     mut state: Local<UseItemState>,
@@ -172,6 +175,7 @@ pub struct UseTeleportState {
     pub events: EventReader<GameEvent>,
 }
 
+#[system("game_events")]
 pub fn game_event_use_teleport(
     commands: &mut Commands,
     mut state: Local<UseTeleportState>,

@@ -31,9 +31,6 @@ mod consts {
     pub const STATUS_HEIGHT: i32 = 2;
 }
 
-#[derive(DiscoveryPlugin)]
-struct DiscPlugin;
-
 #[derive(StructOpt, Debug, Default, Clone)]
 #[structopt(name = "basic")]
 pub struct Opts {
@@ -126,27 +123,7 @@ fn main() {
         .add_plugin(DiscPlugin)
         .add_startup_system(level_setup.system())
         .add_system_to_stage(stage::EVENT, update_game_events.system())
-        .add_system_to_stage(stage::EVENT, asset_events.system())
-        .add_system_to_stage("magnetic_field", magnetic_field_system.system())
-        .add_system_to_stage("process_damage", process_damage.system())
-        .add_system_to_stage("move", move_laser_head.system())
-        .add_system_to_stage("move", move_bear.system())
-        .add_system_to_stage("move", move_bird.system())
-        .add_system_to_stage("move", move_pushbox.system())
-        .add_system_to_stage("move", move_bullet.system())
-        .add_system_to_stage("move", move_blaster_head.system())
-        .add_system_to_stage("move", eyes_system.system())
-        .add_system_to_stage("move", force_field_system.system())
-        .add_system_to_stage("move_robbo", move_robbo.system())
-        .add_system_to_stage("shots", shot_system.system())
-        .add_system_to_stage("game_events", game_event_system.system())
-        .add_system_to_stage("game_events", reload_level_system.system())
-        .add_system_to_stage("game_events", game_event_use_item.system())
-        .add_system_to_stage("game_events", game_event_use_teleport.system())
-        .add_system_to_stage("tick", activate_capsule_system.system())
-        .add_system_to_stage("tick", tick_system.system())
-        .add_system_to_stage("tick", damage_system.system());
-
+        .add_system_to_stage(stage::EVENT, asset_events.system());
     if opts.debug {
         builder.add_plugin(bevy::diagnostic::FrameTimeDiagnosticsPlugin::default());
         //.add_plugin(bevy::diagnostic::PrintDiagnosticsPlugin::default());
@@ -165,3 +142,7 @@ fn main() {
     }
     builder.run();
 }
+
+#[derive(DiscoveryPlugin)]
+#[root("src/main.rs")]
+struct DiscPlugin;

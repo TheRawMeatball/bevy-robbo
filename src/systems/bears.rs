@@ -4,6 +4,7 @@ use crate::levels::LevelInfo;
 use crate::resources::DamageMap;
 use bevy::prelude::*;
 
+#[system("move")]
 pub fn move_bear(
     frame_cnt: Res<FrameCnt>,
     level_info: Res<LevelInfo>,

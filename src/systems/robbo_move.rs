@@ -7,6 +7,7 @@ use crate::plugins::audio::Sound;
 use bevy::prelude::*;
 use std::collections::{HashMap, HashSet};
 
+#[system("move_robbo")]
 pub fn move_robbo(
     commands: &mut Commands,
     (mut inventory, mut events, mut sounds, frame_cnt, level_info): (

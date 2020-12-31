@@ -4,6 +4,7 @@ use crate::frame_cnt::FrameCnt;
 use crate::game_events::GameEvent;
 use bevy::prelude::*;
 
+#[system("tick")]
 pub fn tick_system(
     commands: &mut Commands,
     frame_cnt: Res<FrameCnt>,

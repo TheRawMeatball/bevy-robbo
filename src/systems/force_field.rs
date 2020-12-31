@@ -4,6 +4,7 @@ use crate::resources::DamageMap;
 use bevy::prelude::*;
 use std::collections::HashMap;
 
+#[system("move")]
 pub fn force_field_system(
     commands: &mut Commands,
     frame_cnt: Res<FrameCnt>,

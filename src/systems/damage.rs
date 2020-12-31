@@ -8,6 +8,8 @@ use crate::levels::LevelInfo;
 use bevy::prelude::*;
 use std::collections::HashSet;
 
+
+#[system("tick")]
 pub fn damage_system(
     commands: &mut Commands,
     frame_cnt: Res<FrameCnt>,
@@ -40,6 +42,7 @@ pub fn damage_system(
     }
 }
 
+#[system("process_damage")]
 pub fn process_damage(
     commands: &mut Commands,
     frame_cnt: Res<FrameCnt>,
