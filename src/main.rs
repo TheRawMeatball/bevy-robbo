@@ -19,6 +19,9 @@ use resources::DamageMap;
 use structopt::StructOpt;
 use systems::*;
 
+#[macro_use]
+extern crate bevy_discovery;
+
 // use std::alloc::System;
 // use wasm_tracing_allocator::WasmTracingAllocator;
 
@@ -120,7 +123,7 @@ fn main() {
         .add_stage_before(stage::POST_UPDATE, "game_events", SystemStage::parallel())
         .add_stage_after("keyboard", "magnetic_field", SystemStage::parallel())
         .add_stage_after("frame_cnt", "tick", SystemStage::parallel())
-        .add_plugin(DiscPlugin)
+        .add_plugin(DiscoveryPlugin)
         .add_startup_system(level_setup.system())
         .add_system_to_stage(stage::EVENT, update_game_events.system())
         .add_system_to_stage(stage::EVENT, asset_events.system());
@@ -145,4 +148,4 @@ fn main() {
 
 #[derive(DiscoveryPlugin)]
 #[root("src/main.rs")]
-struct DiscPlugin;
+struct DiscoveryPlugin;
