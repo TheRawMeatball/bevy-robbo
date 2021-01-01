@@ -8,6 +8,7 @@ pub struct AssetEventsState {
     reader: EventReader<AssetEvent<LevelSet>>,
 }
 
+#[system(stage::EVENT)]
 pub fn asset_events(
     mut game_events: ResMut<Events<GameEvent>>,
     opts: Res<crate::Opts>,

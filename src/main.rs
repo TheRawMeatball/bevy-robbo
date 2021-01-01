@@ -124,9 +124,7 @@ fn main() {
         .add_stage_after("keyboard", "magnetic_field", SystemStage::parallel())
         .add_stage_after("frame_cnt", "tick", SystemStage::parallel())
         .add_plugin(DiscoveryPlugin)
-        .add_startup_system(level_setup.system())
-        .add_system_to_stage(stage::EVENT, update_game_events.system())
-        .add_system_to_stage(stage::EVENT, asset_events.system());
+        .add_startup_system(level_setup.system());
     if opts.debug {
         builder.add_plugin(bevy::diagnostic::FrameTimeDiagnosticsPlugin::default());
         //.add_plugin(bevy::diagnostic::PrintDiagnosticsPlugin::default());

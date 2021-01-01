@@ -17,6 +17,7 @@ pub struct State {
     pub events: EventReader<GameEvent>,
 }
 
+#[system(stage::EVENT)]
 pub fn update_game_events(frame_cnt: Res<FrameCnt>, events: ResMut<Events<GameEvent>>) {
     if frame_cnt.is_keyframe() {
         Events::<GameEvent>::update_system(events)
