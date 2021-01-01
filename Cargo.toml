@@ -31,7 +31,7 @@ anyhow = "1.0"
 rand = "0.7"
 structopt = "0.3"
 uuid = "0.8"
-bevy_discovery = { path = "../../bevy_discovery" }
+bevy_discovery = "0.1"
 # wasm-tracing-allocator = {version = "0.1.1"}
 
 [profile.dev]
